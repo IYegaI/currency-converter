@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <title>Konwenter walut</title>
+</head>
+<body>
+    <div class="header">
+        <img id="logoPic" src="img/Logo.png" alt="Logo">
+        <img id="logoText" src="img/LogoText.png" alt="LogoText">
+        
+    </div>
+    <div id="viewButtonsOne">
+        <button class="windowButton" onclick='toggleDivs()'>
+            <img src="img/turn-left-symbol.png" alt="ChangeWindowToLeft">
+        </button>
+        <b class="screenTitle">Change</b>
+        <button class="windowButton" onclick='toggleDivs()'>
+            <img src="img/turn-right-symbol.png" alt="ChangeWindowToRight">
+        </button>
+    </div>
+
+    <div class="container">
+        <div id="window1">
+            <div class="currency-box">
+                <label style="color: rgb(255,0,0); font-family: Verdana;"><b>Kwota<br>waluty bazowej:</b></label>         
+                <input type="number" placeholder="Wprowadź liczby" name="numberOne"> 
+            </div>
+            <div class="select-option">
+                <select id="dynamicSelect" name="firstCurrency">
+                    <option value="PLN">PLN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CNY">CNY</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="KRW">KRW</option>
+                </select>
+            </div>
+            <div>
+                <img id="tradePic" src="img/TradePic.png" alt="Trade Picture">
+            </div>
+            <div class="currency-box">
+                <label style="color: rgb(255,0,0); font-family: Verdana;"><b>Kwota<br>waluty docelowej:</b></label>
+                <input type="number" placeholder="Wynik" name="result" readonly> 
+            </div>       
+            <div class="select-option">
+                <select name="resultCurrency">
+                    <option value="PLN">PLN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CNY">CNY</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                    <option value="KRW">KRW</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="window2">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><label style="color: rgb(255,0,0); font-family: Verdana;"><b>Kwota<br>waluty bazowej:</b></label></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>    
+                        <input type="number" name="numberTwo">
+                        <select name="firstCurrency2">
+                            <option value="PLN">PLN</option>
+                            <option value="EUR">EUR</option>
+                            <option value="CNY">CNY</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                            <option value="KRW">KRW</option>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><p id="result2"></p></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div id="operation-buttons">
+            <button id="submitBtn">Przelicz</button>
+            <button id="cancelBtn">Cancle</button>
+         </div>
+         <div id="operation-buttons2">
+            <button id="submitBtn2">Przelicz</button>
+            <button id="cancelBtn">Cancle</button>
+         </div>
+    </div>
+
+    <div id="viewButtonsTwo">
+        <button class="windowButton" onclick='toggleDivs()'>
+            <img src="img/turn-left-symbol.png" alt="ChangeWindowToLeft">
+        </button>
+        <b class="screenTitle" >Change</b>
+        <button class="windowButton" onclick='toggleDivs()'>
+            <img src="img/turn-right-symbol.png" alt="ChangeWindowToRight">
+        </button>
+    </div>
+    <div class="footer">
+        <label><b>Created by I_Yega_I</label>
+    </div>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', () => {
+        convert();
+        rotateImage();
+});
+    document.getElementById('submitBtn2').addEventListener('click', convertAll);
+
+    document.getElementById('cancelBtn').addEventListener('click', () => {
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.value = '';
+    });
+
+
+    document.querySelectorAll('select').forEach(select => {
+        select.selectedIndex = 0; 
+    });
+});
+    </script>
+</body>
+</html>
